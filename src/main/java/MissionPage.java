@@ -80,6 +80,6 @@ public class MissionPage extends HentaiHeroesPage{
         try{
             getHeader().openHomePage(driver);
         }
-        catch(NoSuchElementException ne){}
+        catch(NoSuchElementException nf){}
     }
 }
