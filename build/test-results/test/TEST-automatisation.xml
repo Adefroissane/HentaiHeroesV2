@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="automatisation" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-20T15:45:46" hostname="DESKTOP-K8K4EVB" time="30.698">
+  <properties/>
+  <testcase name="automatisation" classname="automatisation" time="30.698"/>
+  <system-out><![CDATA[true
+Nombre de mission Ã  recolter15
+Passe
+Nombre de mission restante23
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 11114
+Only local connections are allowed.
+juil. 20, 2018 5:45:51 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFOS: Detected dialect: OSS
+]]></system-err>
+</testsuite>

@@ -1,0 +1,83 @@
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class automatisation {
+
+    WebDriver driver;
+
+    @Before
+    public void init()
+    {
+        driver = new ChromeDriver();
+        driver.manage().window().fullscreen();
+        driver.get("https://www.hentaiheroes.com/");
+    }
+
+    @After
+    public void teardown()
+    {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.close();
+    }
+
+    @Test
+    public void automatisation() {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
+
+        boolean recoltNecessaire = homePage.recoltHarem(driver);
+        if (recoltNecessaire == true)
+        {
+            HaremPage haremPage = homePage.ouvrirLeHarem(driver);
+            haremPage.recolt(driver);
+        }
+
+        boolean combatNonNull = homePage.getHeader().combatNecessaire(driver);
+        if (combatNonNull == true) {
+            AventurePage aventurePage = homePage.openAventure(driver);
+            LastZonePage lastZonePage = aventurePage.openLastZone(driver);
+            Combat(driver);
+        }
+
+        boolean pachinkoGratuitPresent = homePage.pachinkoGratuitPresent(driver);
+        if (pachinkoGratuitPresent == true) {
+            PachinkoPage pachinkoPage = homePage.openPachinkoPage(driver);
+            pachinkoPage.collectPachinkoGratuit(driver);
+        }
+
+        boolean missionDispo = homePage.missionDisponible(driver);
+        System.out.println(missionDispo);
+        if (missionDispo == true) {
+            MissionPage missionPage = homePage.openMissionPage(driver);
+            missionPage.collectEtLanceMission(driver);
+        }
+
+
+
+    }
+
+    private HomePage Combat(WebDriver driver)
+    {
+        LastZonePage lastZonePage = new LastZonePage(driver);
+        CombatPage combatPage = lastZonePage.openCombatPage(driver);
+        LastZonePage lastZonePage2 = combatPage.combattre(driver);
+        boolean combatNonNull = lastZonePage2.getHeader().combatNecessaire(driver);
+        if (combatNonNull == true)
+        {
+            return Combat(driver);
+        }
+        else {
+            HomePage homePage = lastZonePage2.getHeader().openHomePage(driver);
+            return new HomePage(driver);
+        }
+    }
+}
+
+
