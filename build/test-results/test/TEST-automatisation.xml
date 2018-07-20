@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="automatisation" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-20T15:45:46" hostname="DESKTOP-K8K4EVB" time="30.698">
+<testsuite name="automatisation" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-20T16:49:46" hostname="DESKTOP-K8K4EVB" time="131.987">
   <properties/>
-  <testcase name="automatisation" classname="automatisation" time="30.698"/>
-  <system-out><![CDATA[true
-Nombre de mission Ã  recolter15
+  <testcase name="automatisation" classname="automatisation" time="131.987"/>
+  <system-out><![CDATA[Taille du harem =100
+true
+Nombre de mission Ã  recolter12
 Passe
-Nombre de mission restante23
+Nombre de mission restante19
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 11114
+  <system-err><![CDATA[Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 3764
 Only local connections are allowed.
-juil. 20, 2018 5:45:51 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+juil. 20, 2018 6:49:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFOS: Detected dialect: OSS
 ]]></system-err>
 </testsuite>
