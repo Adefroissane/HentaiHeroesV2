@@ -40,6 +40,5 @@ public class HaremPage extends HentaiHeroesPage{
         {
 
         }
-        getHeader().openHomePage(driver);
     }
 }
