@@ -28,39 +28,54 @@ public class automatisation {
     }
 
     @Test
-    public void automatisation() {
+    public void automatisationHarem()
+    {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
 
         boolean recoltNecessaire = homePage.recoltHarem(driver);
-        if (recoltNecessaire == true)
-        {
+        if (recoltNecessaire == true) {
             HaremPage haremPage = homePage.ouvrirLeHarem(driver);
             haremPage.recolt(driver);
         }
+    }
+
+    @Test
+    public void automatisationCombat()
+    {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
 
         boolean combatNonNull = homePage.getHeader().combatNecessaire(driver);
-        if (combatNonNull == true) {
-            AventurePage aventurePage = homePage.openAventure(driver);
-            LastZonePage lastZonePage = aventurePage.openLastZone(driver);
-            Combat(driver);
+        if (combatNonNull == true) { AventurePage aventurePage = homePage.openAventure(driver);
+                LastZonePage lastZonePage = aventurePage.openLastZone(driver);
+                Combat(driver);
+            }
         }
 
+    @Test
+    public void automatisationPachinko()
+    {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
         boolean pachinkoGratuitPresent = homePage.pachinkoGratuitPresent(driver);
         if (pachinkoGratuitPresent == true) {
             PachinkoPage pachinkoPage = homePage.openPachinkoPage(driver);
             pachinkoPage.collectPachinkoGratuit(driver);
         }
+    }
 
+    @Test
+    public void automatisationMission()
+    {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
         boolean missionDispo = homePage.missionDisponible(driver);
         System.out.println(missionDispo);
         if (missionDispo == true) {
             MissionPage missionPage = homePage.openMissionPage(driver);
             missionPage.collectEtLanceMission(driver);
         }
-
-
-
     }
 
     private HomePage Combat(WebDriver driver)
