@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,16 +23,22 @@ public class HaremPage extends HentaiHeroesPage{
         List<WebElement> myElements = driver.findElements(By.className("collect_money"));
         System.out.println("Taille du harem =" + myElements.size());
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        for(WebElement e : myElements) {
-            js.executeScript("arguments[0].scrollIntoView();", e);
-            try {
-                Thread.sleep(800);
-            } catch (InterruptedException ab) {
-                ab.printStackTrace();
+        try {
+            for (WebElement e : myElements) {
+                js.executeScript("arguments[0].scrollIntoView();", e);
+                try {
+                    Thread.sleep(800);
+                } catch (InterruptedException ab) {
+                    ab.printStackTrace();
+                }
+                if (e.isDisplayed()) {
+                    e.click();
+                }
             }
-            if (e.isDisplayed()) {
-                e.click();
-            }
+        }
+        catch(NoSuchElementException ne)
+        {
+
         }
         getHeader().openHomePage(driver);
     }
