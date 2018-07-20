@@ -38,8 +38,6 @@ public class MissionPage extends HentaiHeroesPage{
             for(WebElement e : myElements) {
                 if(e.isDisplayed()){
                     e.click();
-                    WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
-                    webDriverWait2.until(ExpectedConditions.visibilityOf(validerRecompense));
                     try{
                         Thread.sleep(500);
                     }
@@ -47,6 +45,8 @@ public class MissionPage extends HentaiHeroesPage{
                         ab.printStackTrace();
                     }
                     try{
+                        WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
+                        webDriverWait2.until(ExpectedConditions.visibilityOf(validerRecompense));
                         validerRecompense.click();
                     }
                     catch(NoSuchElementException nf){}
@@ -80,6 +80,6 @@ public class MissionPage extends HentaiHeroesPage{
         try{
             getHeader().openHomePage(driver);
         }
-        catch(NoSuchElementException ne){}
+        catch(NoSuchElementException nf){}
     }
 }
