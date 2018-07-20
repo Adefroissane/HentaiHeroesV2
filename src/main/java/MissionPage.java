@@ -38,6 +38,7 @@ public class MissionPage extends HentaiHeroesPage{
             for(WebElement e : myElements) {
                 if(e.isDisplayed()){
                     e.click();
+                    
                     try{
                         Thread.sleep(500);
                     }
