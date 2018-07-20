@@ -34,7 +34,7 @@ public class CombatPage extends HentaiHeroesPage{
         webDriverWait3.until(ExpectedConditions.visibilityOf(oki));
 
         try{
-        Thread.sleep(500);
+        Thread.sleep(750);
     }
     catch(InterruptedException e){
         e.printStackTrace();

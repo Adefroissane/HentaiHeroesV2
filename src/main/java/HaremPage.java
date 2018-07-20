@@ -27,7 +27,7 @@ public class HaremPage extends HentaiHeroesPage{
             for (WebElement e : myElements) {
                 js.executeScript("arguments[0].scrollIntoView();", e);
                 try {
-                    Thread.sleep(800);
+                    Thread.sleep(1000);
                 } catch (InterruptedException ab) {
                     ab.printStackTrace();
                 }
