@@ -60,7 +60,7 @@ public class MissionPage extends HentaiHeroesPage{
     public void lanceMission(WebDriver driver){
         System.out.println("Passe");
         try{
-            Thread.sleep(500);
+            Thread.sleep(750);
         }
         catch(InterruptedException e){
             e.printStackTrace();
@@ -77,10 +77,5 @@ public class MissionPage extends HentaiHeroesPage{
             }
         }
         catch(NoSuchElementException ne){}
-
-        try{
-            getHeader().openHomePage(driver);
-        }
-        catch(NoSuchElementException nf){}
     }
 }
