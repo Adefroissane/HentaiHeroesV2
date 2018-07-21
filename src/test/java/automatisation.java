@@ -78,7 +78,7 @@ public class automatisation {
         }
     }
 
-    private HomePage Combat(WebDriver driver)
+    private void Combat(WebDriver driver)
     {
         LastZonePage lastZonePage = new LastZonePage(driver);
         CombatPage combatPage = lastZonePage.openCombatPage(driver);
@@ -86,11 +86,7 @@ public class automatisation {
         boolean combatNonNull = lastZonePage2.getHeader().combatNecessaire(driver);
         if (combatNonNull == true)
         {
-            return Combat(driver);
-        }
-        else {
-            HomePage homePage = lastZonePage2.getHeader().openHomePage(driver);
-            return new HomePage(driver);
+            Combat(driver);
         }
     }
 }
