@@ -1,5 +1,6 @@
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,6 +79,7 @@ public class automatisation {
         }
     }
 
+    @Ignore
     @Test
     public void automatisationDuel()
     {
@@ -93,6 +95,7 @@ public class automatisation {
         CombatPage combatPage = duelPage.duel(driver);
         if (duelPage.duel(driver) != null)
         {
+            DuelPage duelPage2 = combatPage.combattreDuel(driver);
             duel(driver);
         }
     }

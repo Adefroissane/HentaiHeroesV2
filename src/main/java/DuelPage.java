@@ -1,3 +1,4 @@
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +27,7 @@ public class DuelPage extends HentaiHeroesPage {
 
     public CombatPage duel(WebDriver driver) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(PVAdversaire2));
+        webDriverWait.until(ExpectedConditions.visibilityOf(mesPV));
         String plif = mesPV.getText();
         String plaf = plif.replaceAll("\\s", "");
         StringBuffer plouf = new StringBuffer(plaf);
@@ -58,25 +59,28 @@ public class DuelPage extends HentaiHeroesPage {
         String plof4 = plouf4.toString();
         int pvDuMechant3 = Integer.parseInt(plof4);
         System.out.println("PV = " + pvDuMechant3);
-
-        if (PVAdversaire1.isDisplayed()) {
-            if (pvDuHeros >= pvDuMechant1) {
-                PVAdversaire1.click();
-                return new CombatPage(driver);
+        try {
+            if (PVAdversaire1.isDisplayed()) {
+                if (pvDuHeros >= pvDuMechant1) {
+                    PVAdversaire1.click();
+                    return new CombatPage(driver);
+                }
+            } else if (PVAdversaire2.isDisplayed()) {
+                if (pvDuHeros >= pvDuMechant2) {
+                    PVAdversaire2.click();
+                    return new CombatPage(driver);
+                }
+            } else if (PVAdversaire3.isDisplayed()) {
+                if (pvDuHeros >= pvDuMechant3) {
+                    PVAdversaire3.click();
+                    return new CombatPage(driver);
+                }
             }
+            return null;
         }
-        else if (PVAdversaire2.isDisplayed()) {
-            if (pvDuHeros >= pvDuMechant2) {
-                PVAdversaire2.click();
-                return new CombatPage(driver);
-            }
+        catch (NoSuchElementException e)
+        {
+            return null;
         }
-        else if (PVAdversaire3.isDisplayed()) {
-            if (pvDuHeros >= pvDuMechant3) {
-                PVAdversaire3.click();
-                return new CombatPage(driver);
-            }
-        }
-        return null;
     }
 }

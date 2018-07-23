@@ -22,23 +22,29 @@ public class CombatPage extends HentaiHeroesPage{
     @FindBy(css = "#battle_win > button")
     private WebElement oki;
 
+    @FindBy(css = "#battle_middle > button.blue_text_button.short")
+    private WebElement affronter;
+
     public LastZonePage combattreBoss(WebDriver driver)
     {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(affronterx1));
+        affronterx1.click();
         combattre(driver);
         return new LastZonePage(driver);
     }
 
     public DuelPage combattreDuel(WebDriver driver)
     {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(affronter));
+        affronter.click();
         combattre(driver);
         return new DuelPage(driver);
     }
 
     public void combattre(WebDriver driver)
     {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(affronterx1));
-        affronterx1.click();
         WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
         webDriverWait2.until(ExpectedConditions.visibilityOf(passer));
         passer.click();
