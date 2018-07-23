@@ -78,6 +78,15 @@ public class automatisation {
         }
     }
 
+    @Test
+    public void automatisationDuel()
+    {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
+        DuelPage duelPage = homePage.openDuelPage(driver);
+        boolean victoirePossible = duelPage.victoirePossible (driver);
+    }
+
     private void Combat(WebDriver driver)
     {
         LastZonePage lastZonePage = new LastZonePage(driver);

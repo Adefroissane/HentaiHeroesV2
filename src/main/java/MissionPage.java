@@ -29,31 +29,46 @@ public class MissionPage extends HentaiHeroesPage{
     @FindBy(css = "#missions_rewards > button")
     private WebElement validerRecompense;
 
+    @FindBy(css = "#missions > div > div.end_gift > button")
+    private WebElement recuperer;
+
     public void collectEtLanceMission(WebDriver driver) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(repereMission));
         List<WebElement> myElements = driver.findElements(By.className("purple_text_button"));
         System.out.println("Nombre de mission à recolter" + myElements.size());
         if(myElements.size() !=0) {
-            for(WebElement e : myElements) {
-                if(e.isDisplayed()){
+            for (WebElement e : myElements) {
+                if (e.isDisplayed()) {
                     e.click();
-                    
-                    try{
+
+                    try {
                         Thread.sleep(500);
-                    }
-                    catch(InterruptedException ab){
+                    } catch (InterruptedException ab) {
                         ab.printStackTrace();
                     }
-                    try{
+                    try {
                         WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
                         webDriverWait2.until(ExpectedConditions.visibilityOf(validerRecompense));
                         validerRecompense.click();
+                    } catch (NoSuchElementException nf) {
                     }
-                    catch(NoSuchElementException nf){}
+
                 }
             }
         }
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ab){
+            ab.printStackTrace();
+        }
+        try {
+            driver.findElement(By.cssSelector("#missions > div > div.end_gift > button"));
+            recuperer.click();
+        }
+        catch(NoSuchElementException ne){}
+
         lanceMission(driver);
     }
 

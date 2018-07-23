@@ -100,13 +100,7 @@ public class HomePage  extends HentaiHeroesPage{
     public boolean missionDisponible(WebDriver driver) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(harem));
-        try {
-            driver.findElement(By.cssSelector("#home_missions_bar1 > div > div.text"));
-        } catch (NoSuchElementException e)
-        {
-            return true;
-        }
-        if(missionNonDisponible.isDisplayed()) {
+        if(missionNonDisponible.isDisplayed() || missionNonDisponible2.isDisplayed()){
             return false;
         }
         else {
@@ -120,5 +114,13 @@ public class HomePage  extends HentaiHeroesPage{
         webDriverWait.until(ExpectedConditions.visibilityOf(mission));
         mission.click();
         return new MissionPage(driver);
+    }
+
+    public DuelPage openDuelPage(WebDriver driver) {
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(arene));
+        arene.click();
+        return new DuelPage(driver);
     }
 }
