@@ -84,14 +84,24 @@ public class automatisation {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
         DuelPage duelPage = homePage.openDuelPage(driver);
-        boolean victoirePossible = duelPage.victoirePossible (driver);
+        duel(driver);
+    }
+
+    private void duel(WebDriver driver)
+    {
+        DuelPage duelPage = new DuelPage(driver);
+        CombatPage combatPage = duelPage.duel(driver);
+        if (duelPage.duel(driver) != null)
+        {
+            duel(driver);
+        }
     }
 
     private void Combat(WebDriver driver)
     {
         LastZonePage lastZonePage = new LastZonePage(driver);
         CombatPage combatPage = lastZonePage.openCombatPage(driver);
-        LastZonePage lastZonePage2 = combatPage.combattre(driver);
+        LastZonePage lastZonePage2 = combatPage.combattreBoss(driver);
         boolean combatNonNull = lastZonePage2.getHeader().combatNecessaire(driver);
         if (combatNonNull == true)
         {

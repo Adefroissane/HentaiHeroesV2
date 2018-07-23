@@ -6,8 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DuelPage extends HentaiHeroesPage {
-    public DuelPage(WebDriver driver)
-    {
+    public DuelPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -15,21 +14,69 @@ public class DuelPage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"arena\"]/div[1]/div[2]/div[3]")
     private WebElement mesPV;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(3) > div.opponents_ego")
-    private WebElement PVAdversaire2;
-
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(2) > div.opponents_ego")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[2]")
     private WebElement PVAdversaire1;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.opponents_ego")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[2]")
+    private WebElement PVAdversaire2;
+
+
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[2]")
     private WebElement PVAdversaire3;
 
-    public boolean victoirePossible(WebDriver driver) {
+    public CombatPage duel(WebDriver driver) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(PVAdversaire2));
-        String plouf = mesPV.getText();
-        System.out.println("le texte = " + plouf );
-        return true;
+        String plif = mesPV.getText();
+        String plaf = plif.replaceAll("\\s", "");
+        StringBuffer plouf = new StringBuffer(plaf);
+        plouf.delete(0, 3);
+        String plof = plouf.toString();
+        int pvDuHeros = Integer.parseInt(plof);
+        System.out.println("PV = " + pvDuHeros);
 
+        String plif2 = PVAdversaire1.getText();
+        String plaf2 = plif2.replaceAll("\\s", "");
+        StringBuffer plouf2 = new StringBuffer(plaf2);
+        plouf2.delete(0, 3);
+        String plof2 = plouf2.toString();
+        int pvDuMechant1 = Integer.parseInt(plof2);
+        System.out.println("PV = " + pvDuMechant1);
+
+        String plif3 = PVAdversaire2.getText();
+        String plaf3 = plif3.replaceAll("\\s", "");
+        StringBuffer plouf3 = new StringBuffer(plaf3);
+        plouf3.delete(0, 3);
+        String plof3 = plouf3.toString();
+        int pvDuMechant2 = Integer.parseInt(plof3);
+        System.out.println("PV = " + pvDuMechant2);
+
+        String plif4 = PVAdversaire3.getText();
+        String plaf4 = plif3.replaceAll("\\s", "");
+        StringBuffer plouf4 = new StringBuffer(plaf4);
+        plouf4.delete(0, 3);
+        String plof4 = plouf4.toString();
+        int pvDuMechant3 = Integer.parseInt(plof4);
+        System.out.println("PV = " + pvDuMechant3);
+
+        if (PVAdversaire1.isDisplayed()) {
+            if (pvDuHeros >= pvDuMechant1) {
+                PVAdversaire1.click();
+                return new CombatPage(driver);
+            }
+        }
+        else if (PVAdversaire2.isDisplayed()) {
+            if (pvDuHeros >= pvDuMechant2) {
+                PVAdversaire2.click();
+                return new CombatPage(driver);
+            }
+        }
+        else if (PVAdversaire3.isDisplayed()) {
+            if (pvDuHeros >= pvDuMechant3) {
+                PVAdversaire3.click();
+                return new CombatPage(driver);
+            }
+        }
+        return null;
     }
 }
