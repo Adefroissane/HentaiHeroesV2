@@ -34,7 +34,7 @@ public class DuelPage extends HentaiHeroesPage {
     @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span")
     private WebElement victoire3;
 
-    @FindBy(css = "")
+    @FindBy(css = "#arena > div.base_block.opponents_arena > div.sub_block.one_opponent.disabled > div.disabled_opponent > span")
     private WebElement defaite1;
 
     @FindBy(css = "")
@@ -141,7 +141,7 @@ public class DuelPage extends HentaiHeroesPage {
 
     public CombatPage duel2(WebDriver driver)
     {
-        pVAdversaire1.click();
+        pVAdversaire2.click();
         return new CombatPage(driver);
     }
 
