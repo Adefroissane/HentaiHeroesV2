@@ -62,7 +62,7 @@ public class DuelPage extends HentaiHeroesPage {
         try
         {
             driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(2) > div.disabled_opponent > span"));
-            if (victoire1.isDisplayed())
+            if (victoire1.isDisplayed() || defaite1.isDisplayed())
             {
                 return false;
             }
