@@ -51,9 +51,7 @@ public class MissionPage extends HentaiHeroesPage{
                         WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
                         webDriverWait2.until(ExpectedConditions.visibilityOf(validerRecompense));
                         validerRecompense.click();
-                    } catch (NoSuchElementException nf) {
-                    }
-
+                    } catch (NoSuchElementException nf) {}
                 }
             }
         }
@@ -63,11 +61,11 @@ public class MissionPage extends HentaiHeroesPage{
         catch(InterruptedException ab){
             ab.printStackTrace();
         }
-        try {
+        /*try {
             driver.findElement(By.cssSelector("#missions > div > div.end_gift > button"));
             recuperer.click();
         }
-        catch(NoSuchElementException ne){}
+        catch(NoSuchElementException ne){}*/
 
         lanceMission(driver);
     }
