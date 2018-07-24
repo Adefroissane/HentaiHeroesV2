@@ -79,26 +79,51 @@ public class automatisation {
         }
     }
 
-    @Ignore
     @Test
-    public void automatisationDuel()
-    {
+    public void automatisationDuel1() {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
         DuelPage duelPage = homePage.openDuelPage(driver);
-        duel(driver);
-    }
-
-    private void duel(WebDriver driver)
-    {
-        DuelPage duelPage = new DuelPage(driver);
-        CombatPage combatPage = duelPage.duel(driver);
-        if (duelPage.duel(driver) != null)
+        if(duelPage.combat1Fait(driver) == true)
         {
-            DuelPage duelPage2 = combatPage.combattreDuel(driver);
-            duel(driver);
+            if (duelPage.combat1PlusFaible(driver) == true)
+            {
+                CombatPage combatPage = duelPage.duel1(driver);
+                DuelPage duelPage2 = combatPage.combattreDuel(driver);
+            }
         }
     }
+
+    @Test
+    public void automatisationDuel2() {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
+        DuelPage duelPage = homePage.openDuelPage(driver);
+        if(duelPage.combat2Fait(driver) == true)
+        {
+            if (duelPage.combat2PlusFaible(driver) == true)
+            {
+                CombatPage combatPage = duelPage.duel2(driver);
+                DuelPage duelPage2 = combatPage.combattreDuel(driver);
+            }
+        }
+    }
+
+    @Test
+    public void automatisationDuel3() {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
+        DuelPage duelPage = homePage.openDuelPage(driver);
+        if(duelPage.combat3Fait(driver) == true)
+        {
+            if (duelPage.combat3PlusFaible(driver) == true)
+            {
+                CombatPage combatPage = duelPage.duel3(driver);
+                DuelPage duelPage2 = combatPage.combattreDuel(driver);
+            }
+        }
+    }
+
 
     private void Combat(WebDriver driver)
     {

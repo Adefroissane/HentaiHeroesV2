@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,71 +17,175 @@ public class DuelPage extends HentaiHeroesPage {
     private WebElement mesPV;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[2]")
-    private WebElement PVAdversaire1;
+    private WebElement pVAdversaire1;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[2]")
-    private WebElement PVAdversaire2;
-
+    private WebElement pVAdversaire2;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[2]")
-    private WebElement PVAdversaire3;
+    private WebElement pVAdversaire3;
 
-    public CombatPage duel(WebDriver driver) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(mesPV));
+    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(2) > div.disabled_opponent > span")
+    private WebElement victoire1;
+
+    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(3) > div.disabled_opponent > span")
+    private WebElement victoire2;
+
+    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span")
+    private WebElement victoire3;
+
+    @FindBy(css = "")
+    private WebElement defaite1;
+
+    @FindBy(css = "")
+    private WebElement defaite2;
+
+    @FindBy(css = "")
+    private WebElement defaite3;
+
+
+
+    public int PvHeros() {
+
         String plif = mesPV.getText();
         String plaf = plif.replaceAll("\\s", "");
         StringBuffer plouf = new StringBuffer(plaf);
         plouf.delete(0, 3);
         String plof = plouf.toString();
-        int pvDuHeros = Integer.parseInt(plof);
-        System.out.println("PV = " + pvDuHeros);
+        int pvHeros = Integer.parseInt(plof);
+        System.out.println("PV = " + pvHeros);
+        return pvHeros;
+    }
 
-        String plif2 = PVAdversaire1.getText();
+    public boolean combat1Fait(WebDriver driver)
+    {
+        try
+        {
+            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(2) > div.disabled_opponent > span"));
+            if (victoire1.isDisplayed())
+            {
+                return false;
+            }
+        }
+        catch (NoSuchElementException e)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public boolean combat1PlusFaible (WebDriver driver)
+    {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(mesPV));
+        int pvHeros = PvHeros();
+        String plif2 = pVAdversaire1.getText();
         String plaf2 = plif2.replaceAll("\\s", "");
         StringBuffer plouf2 = new StringBuffer(plaf2);
         plouf2.delete(0, 3);
         String plof2 = plouf2.toString();
         int pvDuMechant1 = Integer.parseInt(plof2);
         System.out.println("PV = " + pvDuMechant1);
-
-        String plif3 = PVAdversaire2.getText();
-        String plaf3 = plif3.replaceAll("\\s", "");
-        StringBuffer plouf3 = new StringBuffer(plaf3);
-        plouf3.delete(0, 3);
-        String plof3 = plouf3.toString();
-        int pvDuMechant2 = Integer.parseInt(plof3);
-        System.out.println("PV = " + pvDuMechant2);
-
-        String plif4 = PVAdversaire3.getText();
-        String plaf4 = plif3.replaceAll("\\s", "");
-        StringBuffer plouf4 = new StringBuffer(plaf4);
-        plouf4.delete(0, 3);
-        String plof4 = plouf4.toString();
-        int pvDuMechant3 = Integer.parseInt(plof4);
-        System.out.println("PV = " + pvDuMechant3);
-        try {
-            if (PVAdversaire1.isDisplayed()) {
-                if (pvDuHeros >= pvDuMechant1) {
-                    PVAdversaire1.click();
-                    return new CombatPage(driver);
-                }
-            } else if (PVAdversaire2.isDisplayed()) {
-                if (pvDuHeros >= pvDuMechant2) {
-                    PVAdversaire2.click();
-                    return new CombatPage(driver);
-                }
-            } else if (PVAdversaire3.isDisplayed()) {
-                if (pvDuHeros >= pvDuMechant3) {
-                    PVAdversaire3.click();
-                    return new CombatPage(driver);
-                }
+        if (pVAdversaire1.isDisplayed()) {
+            if (pvHeros >= pvDuMechant1)
+            {
+                return true;
             }
-            return null;
+        }
+        return false;
+    }
+
+    public CombatPage duel1(WebDriver driver)
+    {
+        pVAdversaire1.click();
+        return new CombatPage(driver);
+    }
+
+    public boolean combat2Fait(WebDriver driver)
+    {
+        try
+        {
+            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(3) > div.disabled_opponent > span"));
+            if (victoire2.isDisplayed())
+            {
+                return false;
+            }
         }
         catch (NoSuchElementException e)
         {
-            return null;
+            return true;
         }
+        return true;
+    }
+
+    public boolean combat2PlusFaible (WebDriver driver)
+    {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(mesPV));
+        int pvHeros = PvHeros();
+        String plif2 = pVAdversaire2.getText();
+        String plaf2 = plif2.replaceAll("\\s", "");
+        StringBuffer plouf2 = new StringBuffer(plaf2);
+        plouf2.delete(0, 3);
+        String plof2 = plouf2.toString();
+        int pvDuMechant1 = Integer.parseInt(plof2);
+        System.out.println("PV = " + pvDuMechant1);
+        if (pVAdversaire2.isDisplayed()) {
+            if (pvHeros >= pvDuMechant1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public CombatPage duel2(WebDriver driver)
+    {
+        pVAdversaire1.click();
+        return new CombatPage(driver);
+    }
+
+    public boolean combat3Fait(WebDriver driver)
+    {
+        try
+        {
+            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span"));
+            if (victoire3.isDisplayed())
+            {
+                return false;
+            }
+        }
+        catch (NoSuchElementException e)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    public boolean combat3PlusFaible (WebDriver driver)
+    {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(mesPV));
+        int pvHeros = PvHeros();
+        String plif2 = pVAdversaire3.getText();
+        String plaf2 = plif2.replaceAll("\\s", "");
+        StringBuffer plouf2 = new StringBuffer(plaf2);
+        plouf2.delete(0, 3);
+        String plof2 = plouf2.toString();
+        int pvDuMechant1 = Integer.parseInt(plof2);
+        System.out.println("PV = " + pvDuMechant1);
+        if (pVAdversaire3.isDisplayed()) {
+            if (pvHeros >= pvDuMechant1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public CombatPage duel3(WebDriver driver) {
+
+        pVAdversaire3.click();
+        return new CombatPage(driver);
     }
 }
