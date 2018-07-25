@@ -61,13 +61,12 @@ public class MissionPage extends HentaiHeroesPage{
         catch(InterruptedException ab){
             ab.printStackTrace();
         }
-        /*try {
+        try{
             driver.findElement(By.cssSelector("#missions > div > div.end_gift > button"));
             recuperer.click();
         }
-        catch(NoSuchElementException ne){}*/
-
-        lanceMission(driver);
+        catch(NoSuchElementException recuperer){}
+        finally {lanceMission(driver);}
     }
 
     public void lanceMission(WebDriver driver){
