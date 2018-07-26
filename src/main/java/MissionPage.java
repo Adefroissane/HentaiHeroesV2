@@ -32,7 +32,13 @@ public class MissionPage extends HentaiHeroesPage{
     @FindBy(css = "#missions > div > div.end_gift > button")
     private WebElement recuperer;
 
-    public void collectEtLanceMission(WebDriver driver) {
+    public void collectMission(WebDriver driver) {
+        try{
+            Thread.sleep(750);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(repereMission));
         List<WebElement> myElements = driver.findElements(By.className("purple_text_button"));
@@ -66,10 +72,11 @@ public class MissionPage extends HentaiHeroesPage{
             recuperer.click();
         }
         catch(NoSuchElementException recuperer){}
-        finally {lanceMission(driver);}
     }
 
-    public void lanceMission(WebDriver driver){
+    public void collectEtLanceMission(WebDriver driver){
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+        webDriverWait.until(ExpectedConditions.visibilityOf(repereMission));
         System.out.println("Passe");
         try{
             Thread.sleep(750);
@@ -89,5 +96,9 @@ public class MissionPage extends HentaiHeroesPage{
             }
         }
         catch(NoSuchElementException ne){}
+        finally
+        {
+            collectMission(driver);
+        }
     }
 }
