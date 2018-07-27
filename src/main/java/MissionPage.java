@@ -39,8 +39,6 @@ public class MissionPage extends HentaiHeroesPage{
         catch(InterruptedException e){
             e.printStackTrace();
         }
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(repereMission));
         List<WebElement> myElements = driver.findElements(By.className("purple_text_button"));
         System.out.println("Nombre de mission à recolter" + myElements.size());
         if(myElements.size() !=0) {
@@ -49,13 +47,13 @@ public class MissionPage extends HentaiHeroesPage{
                     e.click();
 
                     try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException ab) {
-                        ab.printStackTrace();
-                    }
-                    try {
                         WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
                         webDriverWait2.until(ExpectedConditions.visibilityOf(validerRecompense));
+                        try {
+                            Thread.sleep(750);
+                        } catch (InterruptedException ab) {
+                            ab.printStackTrace();
+                        }
                         validerRecompense.click();
                     } catch (NoSuchElementException nf) {}
                 }
@@ -74,21 +72,27 @@ public class MissionPage extends HentaiHeroesPage{
         catch(NoSuchElementException recuperer){}
     }
 
-    public void collectEtLanceMission(WebDriver driver){
+    public void lanceMission(WebDriver driver){
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(repereMission));
         System.out.println("Passe");
         try{
             Thread.sleep(750);
         }
-        catch(InterruptedException e){
-            e.printStackTrace();
+        catch(InterruptedException ne){
+            ne.printStackTrace();
         }
         try {
             List<WebElement> myElements2 = driver.findElements(By.className("blue_text_button"));
             System.out.println("Nombre de mission restante" + myElements2.size());
             if (myElements2.size() != 0) {
                 for (WebElement e : myElements2) {
+                    try{
+                        Thread.sleep(750);
+                    }
+                    catch(InterruptedException ae){
+                        ae.printStackTrace();
+                    }
                     if (e.isDisplayed()) {
                         e.click();
                     }
@@ -96,9 +100,5 @@ public class MissionPage extends HentaiHeroesPage{
             }
         }
         catch(NoSuchElementException ne){}
-        finally
-        {
-            collectMission(driver);
-        }
     }
 }
