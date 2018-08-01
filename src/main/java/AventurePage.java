@@ -16,11 +16,24 @@ public class AventurePage extends HentaiHeroesPage {
     @FindBy(css = "#map > a:nth-child(19)")
     private WebElement lastZone;
 
+    @FindBy(css = "#contains_all > section > div.previous_world > img")
+    private WebElement precedent;
+
+    @FindBy(css = "#map > a:nth-child(9)")
+    private WebElement edwarda;
+
+    @FindBy(css = "#map > a:nth-child(11)")
+    private WebElement donatien;
+
     public LastZonePage openLastZone(WebDriver driver) {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(lastZone));
-        lastZone.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(precedent));
+        precedent.click();
+
+        WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
+        webDriverWait2.until(ExpectedConditions.visibilityOf(donatien));
+        donatien.click();
         return new LastZonePage(driver);
     }
 }

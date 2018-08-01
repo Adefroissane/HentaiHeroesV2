@@ -14,13 +14,19 @@ public class LastZonePage extends HentaiHeroesPage {
     }
 
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[11]")
-    private WebElement affronter;
+    private WebElement affronter1;
+
+    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[8]")
+    private WebElement affronterEdwarda;
+
+    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[8]")
+    private WebElement affronterDonatien;
 
     public CombatPage openCombatPage(WebDriver driver)
     {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
-        webDriverWait.until(ExpectedConditions.visibilityOf(affronter));
-        affronter.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(affronterDonatien));
+        affronterDonatien.click();
         return new CombatPage(driver);
     }
 
