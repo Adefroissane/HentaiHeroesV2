@@ -67,7 +67,7 @@ public class MissionPage extends HentaiHeroesPage{
         }
         try{
             driver.findElement(By.cssSelector("#missions > div > div.end_gift > button"));
-            recuperer.click();
+            recuperer.click(); //tester en fin de programme
         }
         catch(NoSuchElementException recuperer){}
     }
