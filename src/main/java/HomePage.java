@@ -16,19 +16,19 @@ public class HomePage  extends HentaiHeroesPage{
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "#homepage > a:nth-child(2) > div > span")
+    @FindBy(xpath = "//*[@id=\"homepage\"]/a[2]/div/span")
     private WebElement harem;
 
     @FindBy(className = "orange_text_button")
     private WebElement toutCollecter;
 
-    @FindBy(css = "#homepage > a:nth-child(9) > div > span")
+    @FindBy(xpath = "//*[@id=\"homepage\"]/a[7]/div/span")
     private WebElement activite;
 
-    @FindBy(css = "#homepage > a:nth-child(7) > div > span")
+    @FindBy(xpath = "//*[@id=\"homepage\"]/a[6]/div/span")
     private WebElement arene;
 
-    @FindBy(css = "#homepage > a:nth-child(4) > div > span")
+    @FindBy(xpath = "//*[@id=\"homepage\"]/a[3]/div/span")
     private WebElement aventure;
 
     @FindBy(xpath = "//*[@id=\"contains_all\"]/header/div[5]/div[2]/span[1]")
@@ -37,7 +37,7 @@ public class HomePage  extends HentaiHeroesPage{
     @FindBy(xpath = "//*[@id=\"homepage\"]/a[10]/div[2]")
     private WebElement pachinkoGratuit;
 
-    @FindBy(css = "#homepage > a:nth-child(14) > div.position > span")
+    @FindBy(xpath = "//*[@id=\"homepage\"]/a[10]/div/span")
     private WebElement pachinko;
 
     @FindBy(css = "#home_missions_bar1 > div > div.text")
