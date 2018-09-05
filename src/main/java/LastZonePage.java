@@ -25,6 +25,9 @@ public class LastZonePage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[7]")
     private WebElement affronterDarkLord;
 
+    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[7]")
+    private WebElement affronterNinja;
+
     public CombatPage openCombatPage(WebDriver driver)
     {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
