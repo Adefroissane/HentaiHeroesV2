@@ -127,15 +127,22 @@ public class automatisation {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
         DuelPage duelPage = homePage.openDuelPage(driver);
-        if(duelPage.combat3Fait(driver) == true)
-        {
-            if (duelPage.combat3PlusFaible(driver) == true)
-            {
+        if (duelPage.combat3Fait(driver) == true) {
+            if (duelPage.combat3PlusFaible(driver) == true) {
                 CombatPage combatPage = duelPage.duel3(driver);
                 DuelPage duelPage2 = combatPage.combattreDuel(driver);
             }
         }
     }
+
+    @Test
+    public void automatisationDefi() {
+        InitialisationPage initialisation = new InitialisationPage(driver);
+        HomePage homePage = initialisation.openHomePage(driver);
+        TourDeLaGloire tourDeLaGloire = homePage.openTourDeLaGloire(driver);
+        tourDeLaGloire.lancerDefi(driver);
+    }
+
 
 
     private void Combat(WebDriver driver)
