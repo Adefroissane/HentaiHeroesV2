@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TourDeLaGloire extends HentaiHeroesPage {
@@ -52,7 +53,7 @@ public class TourDeLaGloire extends HentaiHeroesPage {
             List<WebElement> myElements = driver.findElements(By.xpath("//*[@id=\"leagues_middle\"]/div[3]/div[2]/table/tbody/tr[*]/td[4]"));
             System.out.println("nbre ennemis =" + myElements.size());
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            List<WebElement> combats = null;
+            ArrayList combats = new ArrayList<WebElement>();
             for (WebElement e : myElements) {
                 js.executeScript("arguments[0].scrollIntoView();", e);
                 try {
@@ -66,10 +67,11 @@ public class TourDeLaGloire extends HentaiHeroesPage {
                     combats.add(e);
                 }
             }
-            js.executeScript("arguments[0].scrollIntoView();", combats.get(1));
+            WebElement adversaire = (WebElement) combats.get(1);
+            js.executeScript("arguments[0].scrollIntoView();", adversaire);
             WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-            webDriverWait.until(ExpectedConditions.visibilityOf(combats.get(1)));
-            combats.get(1).click();
+            webDriverWait.until(ExpectedConditions.visibilityOf(adversaire));
+            adversaire.click();
 
             WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
             webDriverWait2.until(ExpectedConditions.visibilityOf(defi));
