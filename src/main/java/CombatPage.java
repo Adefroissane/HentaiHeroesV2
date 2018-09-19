@@ -22,7 +22,7 @@ public class CombatPage extends HentaiHeroesPage{
     @FindBy(css = "#battle_win > button")
     private WebElement oki;
 
-    @FindBy(css = "#battle_middle > button.blue_text_button.short")
+    @FindBy(xpath = "//*[@id=\"battle_middle\"]/button[1]")
     private WebElement affronter;
 
     @FindBy(css = "#battle_middle > button:nth-child(4)")
