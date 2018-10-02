@@ -34,6 +34,9 @@ public class AventurePage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"map\"]/a[9]")
     private WebElement finalmecia;
 
+    @FindBy(xpath = "//*[@id=\"map\"]/a[4]")
+    private WebElement grunt;
+
     public LastZonePage openLastZone(WebDriver driver) {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
@@ -48,8 +51,8 @@ public class AventurePage extends HentaiHeroesPage {
         }
 
         WebDriverWait webDriverWait2 = new WebDriverWait(driver, 5);
-        webDriverWait2.until(ExpectedConditions.visibilityOf(donatien));
-        donatien.click();
+        webDriverWait2.until(ExpectedConditions.visibilityOf(grunt));
+        grunt.click();
         return new LastZonePage(driver);
     }
 }
