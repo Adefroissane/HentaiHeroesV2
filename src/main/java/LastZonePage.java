@@ -13,7 +13,7 @@ public class LastZonePage extends HentaiHeroesPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[11]")
+    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[16]")
     private WebElement affronter1;
 
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[8]")
