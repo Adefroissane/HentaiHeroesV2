@@ -136,6 +136,7 @@ public class automatisation {
     }
 
     @Test
+    @Ignore
     public void automatisationDefi() {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
