@@ -68,7 +68,7 @@ public class TourDeLaGloire extends HentaiHeroesPage {
                 }
             }
             int i = combats.size();
-            int a = i-1;
+            int a = i-2;
             WebElement adversaire = (WebElement) combats.get(a);
             js.executeScript("arguments[0].scrollIntoView();", adversaire);
             WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
