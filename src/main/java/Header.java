@@ -12,7 +12,7 @@ public class Header {
     @FindBy(css = "#contains_all > header > a.hh_logo")
     WebElement retourHome;
 
-    @FindBy(xpath = "//*[@id=\"contains_all\"]/header/div[5]/div[2]/span[1]")
+    @FindBy(xpath = "//*[@id=\"contains_all\"]/header/div[4]/div/div[2]/span[1]")
     WebElement nbrCombat;
 
     public Header(WebDriver driver) {
