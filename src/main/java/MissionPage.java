@@ -29,8 +29,11 @@ public class MissionPage extends HentaiHeroesPage{
     @FindBy(css = "#missions_rewards > button")
     private WebElement validerRecompense;
 
-    @FindBy(css = "#missions > div > div.end_gift > button")
+    @FindBy(xpath = "//*[@id=\"missions\"]/div/div[2]/button")
     private WebElement recuperer;
+
+    @FindBy(xpath ="//*[@id=\"missions\"]/div/div[1]/a")
+    private WebElement retour;
 
     public void collectMission(WebDriver driver) {
         try{
@@ -66,8 +69,9 @@ public class MissionPage extends HentaiHeroesPage{
             ab.printStackTrace();
         }
         try{
-            driver.findElement(By.cssSelector("#missions > div > div.end_gift > button"));
-            recuperer.click(); //tester en fin de programme
+            if (recuperer.isDisplayed()) {
+                recuperer.click();
+            }
         }
         catch(NoSuchElementException recuperer){}
     }
