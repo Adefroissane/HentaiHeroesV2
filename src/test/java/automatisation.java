@@ -71,12 +71,8 @@ public class automatisation {
     {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
-        boolean missionDispo = homePage.missionDisponible(driver);
-        System.out.println(missionDispo);
-        if (missionDispo == true) {
-            MissionPage missionPage = homePage.openMissionPage(driver);
-            missionPage.collectMission(driver);
-        }
+        MissionPage missionPage = homePage.openMissionPage(driver);
+        missionPage.collectMission(driver);
     }
 
     @Test
@@ -84,7 +80,7 @@ public class automatisation {
     {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
-        boolean missionDispo = homePage.missionDisponible2(driver);
+        boolean missionDispo = homePage.missionDisponible(driver);
         System.out.println(missionDispo);
         if (missionDispo == true) {
             MissionPage missionPage = homePage.openMissionPage(driver);

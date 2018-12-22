@@ -100,18 +100,7 @@ public class HomePage  extends HentaiHeroesPage{
         return new PachinkoPage(driver);
     }
 
-    public boolean missionDisponible(WebDriver driver) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
-        webDriverWait.until(ExpectedConditions.visibilityOf(harem));
-        if(missionNonDisponible.isDisplayed()){
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    public boolean missionDisponible2(WebDriver driver) {
+        public boolean missionDisponible(WebDriver driver) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
         webDriverWait.until(ExpectedConditions.visibilityOf(harem));
         if(missionNonDisponible.isDisplayed()|| missionNonDisponible2.isDisplayed()){
