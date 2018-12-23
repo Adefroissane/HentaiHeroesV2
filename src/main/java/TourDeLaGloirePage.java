@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TourDeLaGloire extends HentaiHeroesPage {
+public class TourDeLaGloirePage extends HentaiHeroesPage {
 
-    public TourDeLaGloire(WebDriver driver) {
+    public TourDeLaGloirePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

@@ -1,6 +1,5 @@
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -135,8 +134,8 @@ public class automatisation {
     public void automatisationDefi() {
         InitialisationPage initialisation = new InitialisationPage(driver);
         HomePage homePage = initialisation.openHomePage(driver);
-        TourDeLaGloire tourDeLaGloire = homePage.openTourDeLaGloire(driver);
-        tourDeLaGloire.lancerDefi(driver);
+        TourDeLaGloirePage tourDeLaGloirePage = homePage.openTourDeLaGloire(driver);
+        tourDeLaGloirePage.lancerDefi(driver);
     }
 
 
