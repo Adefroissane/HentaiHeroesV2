@@ -26,15 +26,17 @@ public class TourDeLaGloirePage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"battle_middle\"]/button[2]")
     private WebElement passer;
 
-    @FindBy(xpath = "//*[@id=\"battle_win\"]/button")
+    @FindBy(xpath = "//*[@id=\"rewards_popup\"]/button")
     private WebElement ok;
 
     @FindBy(xpath = "//*[@id=\"leagues_left\"]/div/div[8]/div/div[2]/span[1]")
     private WebElement ptdeDefi;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//*[@id=\"leagues_middle\"]/div[4]/button")//*[@id="rewards_popup"]/button
     private WebElement recup;
 
+    @FindBy(xpath = "//*[@id=\"rewards_popup\"]/button")
+    private WebElement ok2;
 
 
     public boolean defiNecessaire(WebDriver driver)
@@ -53,9 +55,10 @@ public class TourDeLaGloirePage extends HentaiHeroesPage {
         boolean defiAFaire = defiNecessaire(driver);
         if (defiAFaire == true)
         {
-            /*if (recup.isDisplayed()) {
+            if (recup.isDisplayed()) {
                 recup.click();
-            }*/
+                ok2.click();
+            }
             List<WebElement> myElements = driver.findElements(By.xpath("//*[@id=\"leagues_middle\"]/div[3]/div[2]/table/tbody/tr[*]/td[4]"));
             System.out.println("nbre ennemis =" + myElements.size());
             JavascriptExecutor js = (JavascriptExecutor) driver;
