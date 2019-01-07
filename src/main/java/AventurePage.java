@@ -14,7 +14,7 @@ public class AventurePage extends HentaiHeroesPage {
     }
 
     @FindBy(css = "#map > a:nth-child(19)")
-    private WebElement lastZone;
+    private WebElement roko;
 
     @FindBy(css = "#contains_all > section > div.previous_world > img")
     private WebElement precedent;
@@ -36,6 +36,9 @@ public class AventurePage extends HentaiHeroesPage {
 
     @FindBy(xpath = "//*[@id=\"map\"]/a[4]")
     private WebElement grunt;
+
+    @FindBy(xpath = "//*[@id=\"map\"]/a[11]")
+    private WebElement carole;
 
     public LastZonePage openLastZone(WebDriver driver) {
 
