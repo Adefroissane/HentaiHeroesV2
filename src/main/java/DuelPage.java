@@ -40,7 +40,7 @@ public class DuelPage extends HentaiHeroesPage {
     @FindBy(css = "")
     private WebElement defaite2;
 
-    @FindBy(css = "")
+    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span")
     private WebElement defaite3;
 
 
