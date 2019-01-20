@@ -40,7 +40,7 @@ public class DuelPage extends HentaiHeroesPage {
     @FindBy(css = "")
     private WebElement defaite2;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[1]/span")
     private WebElement defaite3;
 
 
@@ -150,7 +150,7 @@ public class DuelPage extends HentaiHeroesPage {
         try
         {
             driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span"));
-            if (victoire3.isDisplayed())
+            if (victoire3.isDisplayed() || defaite3.isDisplayed())
             {
                 return false;
             }
