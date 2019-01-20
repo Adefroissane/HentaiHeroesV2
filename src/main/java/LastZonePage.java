@@ -38,14 +38,14 @@ public class LastZonePage extends HentaiHeroesPage {
     private WebElement affronterCarole;
 
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[8]")
-    private WebElement affronterAmelin;
+    private WebElement affronterBremen;
 
 
     public CombatPage openCombatPage(WebDriver driver)
     {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
-        webDriverWait.until(ExpectedConditions.visibilityOf(affronterAmelin));
-        affronterAmelin.click();
+        webDriverWait.until(ExpectedConditions.visibilityOf(affronterBremen));
+        affronterBremen.click();
         return new CombatPage(driver);
     }
 
