@@ -29,6 +29,9 @@ public class InitialisationPage extends HentaiHeroesPage{
     @FindBy(css = "#popup_login_form > form > div > div:nth-child(14) > button")
     private WebElement jouer;
 
+    @FindBy(xpath = "//*[@id=\"starter_offer\"]/close")
+    private WebElement pub;
+
     public HomePage openHomePage(WebDriver driver){
 
 
@@ -47,6 +50,18 @@ public class InitialisationPage extends HentaiHeroesPage{
         mail.sendKeys("adefroissane@hotmail.fr");
         password.sendKeys("gegegege");
         jouer.click();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (pub.isDisplayed())
+        {
+            pub.click();
+        }
+
         return new HomePage(driver);
     }
 
