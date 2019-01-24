@@ -51,7 +51,7 @@ public class InitialisationPage extends HentaiHeroesPage{
         password.sendKeys("gegegege");
         jouer.click();
 
-        /*try {
+        try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -60,7 +60,7 @@ public class InitialisationPage extends HentaiHeroesPage{
         if (pub.isDisplayed())
         {
             pub.click();
-        }*/
+        }
 
         return new HomePage(driver);
     }
