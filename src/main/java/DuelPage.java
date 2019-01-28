@@ -25,16 +25,16 @@ public class DuelPage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[2]")
     private WebElement pVAdversaire3;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(2) > div.disabled_opponent > span")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[1]/span")
     private WebElement victoire1;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(3) > div.disabled_opponent > span")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[1]/span")
     private WebElement victoire2;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[1]/span")
     private WebElement victoire3;
 
-    @FindBy(css = "#arena > div.base_block.opponents_arena > div.sub_block.one_opponent.disabled > div.disabled_opponent > span")
+    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[1]/span")
     private WebElement defaite1;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[1]/span")
