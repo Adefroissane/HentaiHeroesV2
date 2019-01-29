@@ -26,23 +26,13 @@ public class DuelPage extends HentaiHeroesPage {
     private WebElement pVAdversaire3;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[1]/span")
-    private WebElement victoire1;
+    private WebElement fait1;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[1]/span")
-    private WebElement victoire2;
+    private WebElement fait2;
 
     @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[1]/span")
-    private WebElement victoire3;
-
-    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[1]/div[1]/span")
-    private WebElement defaite1;
-
-    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[2]/div[1]/span")
-    private WebElement defaite2;
-
-    @FindBy(xpath = "//*[@id=\"arena\"]/div[3]/div[3]/div[1]/span")
-    private WebElement defaite3;
-
+    private WebElement fait3;
 
 
     public int PvHeros() {
@@ -61,8 +51,8 @@ public class DuelPage extends HentaiHeroesPage {
     {
         try
         {
-            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(2) > div.disabled_opponent > span"));
-            if (victoire1.isDisplayed() || defaite1.isDisplayed())
+            driver.findElement(By.xpath("//*[@id=\"arena\"]/div[3]/div[1]/div[1]/span"));
+            if (fait1.isDisplayed())
             {
                 return false;
             }
@@ -105,8 +95,8 @@ public class DuelPage extends HentaiHeroesPage {
     {
         try
         {
-            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(3) > div.disabled_opponent > span"));
-            if (victoire2.isDisplayed()|| defaite2.isDisplayed())
+            driver.findElement(By.xpath("//*[@id=\"arena\"]/div[3]/div[2]/div[1]/span"));
+            if (fait2.isDisplayed())
             {
                 return false;
             }
@@ -149,8 +139,8 @@ public class DuelPage extends HentaiHeroesPage {
     {
         try
         {
-            driver.findElement(By.cssSelector("#arena > div.base_block.opponents_arena > div:nth-child(4) > div.disabled_opponent > span"));
-            if (victoire3.isDisplayed() || defaite3.isDisplayed())
+            driver.findElement(By.xpath("//*[@id=\"arena\"]/div[3]/div[3]/div[1]/span"));
+            if (fait3.isDisplayed())
             {
                 return false;
             }
