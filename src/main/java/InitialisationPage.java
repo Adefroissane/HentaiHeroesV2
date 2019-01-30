@@ -1,9 +1,6 @@
 import com.sun.javafx.scene.EnteredExitedHandler;
 import net.bytebuddy.asm.Advice;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.UnhandledAlertException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,8 +29,8 @@ public class InitialisationPage extends HentaiHeroesPage{
     @FindBy(xpath = "//*[@id=\"starter_offer\"]/close")
     private WebElement pub;
 
-    public HomePage openHomePage(WebDriver driver){
 
+    public HomePage openHomePage(WebDriver driver){
 
         WebDriverWait webDriverWait3 = new WebDriverWait(driver, 5);
         webDriverWait3.until(ExpectedConditions.alertIsPresent());
@@ -57,12 +54,18 @@ public class InitialisationPage extends HentaiHeroesPage{
             e.printStackTrace();
         }
 
-        if (pub.isDisplayed())
+        try
         {
-            pub.click();
+            driver.findElement(By.xpath("//*[@id=\"starter_offer\"]/close"));
+            if (pub.isDisplayed())
+            {
+                pub.click();
+            }
+            return new HomePage(driver);
         }
-
-        return new HomePage(driver);
+        catch (NoSuchElementException e)
+        {
+            return new HomePage(driver);
+        }
     }
-
 }
