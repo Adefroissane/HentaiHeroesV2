@@ -57,10 +57,10 @@ public class InitialisationPage extends HentaiHeroesPage{
         /*try
         {
             driver.findElement(By.xpath("//*[@id=\"starter_offer\"]/close"));*/
-            if (pub.isDisplayed())
+           /* if (pub.isDisplayed())
             {
                 pub.click();
-            }
+            }*/
             return new HomePage(driver);
         /*}
         catch (NoSuchElementException e)
