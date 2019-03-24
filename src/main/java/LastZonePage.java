@@ -34,7 +34,7 @@ public class LastZonePage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[9]")
     private WebElement affrontergrunt;
 
-    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[16]")
+    @FindBy(xpath = "//*[@id=\"worldmap\"]/a[15]")
     private WebElement affronterCarole;
 
     @FindBy(xpath = "//*[@id=\"worldmap\"]/a[8]")
