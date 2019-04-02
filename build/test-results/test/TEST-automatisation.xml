@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="automatisation" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-20T16:49:46" hostname="DESKTOP-K8K4EVB" time="131.987">
+<testsuite name="automatisation" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-20T18:38:18" hostname="DESKTOP-K8K4EVB" time="168.589">
   <properties/>
-  <testcase name="automatisation" classname="automatisation" time="131.987"/>
-  <system-out><![CDATA[Taille du harem =100
-true
-Nombre de mission Ã  recolter12
-Passe
-Nombre de mission restante19
+  <testcase name="automatisationMission" classname="automatisation" time="15.072"/>
+  <testcase name="automatisationCombat" classname="automatisation" time="13.903"/>
+  <testcase name="automatisationHarem" classname="automatisation" time="124.755"/>
+  <testcase name="automatisationPachinko" classname="automatisation" time="14.859"/>
+  <system-out><![CDATA[false
+Taille du harem =100
 ]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 3764
+  <system-err><![CDATA[Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 5645
 Only local connections are allowed.
-juil. 20, 2018 6:49:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+juil. 20, 2018 8:38:21 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFOS: Detected dialect: OSS
+Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 48210
+Only local connections are allowed.
+juil. 20, 2018 8:38:35 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFOS: Detected dialect: OSS
+Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 32968
+Only local connections are allowed.
+juil. 20, 2018 8:38:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFOS: Detected dialect: OSS
+Starting ChromeDriver 2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab) on port 35000
+Only local connections are allowed.
+juil. 20, 2018 8:40:54 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFOS: Detected dialect: OSS
 ]]></system-err>
 </testsuite>
