@@ -26,7 +26,7 @@ public class TourDeLaGloirePage extends HentaiHeroesPage {
     @FindBy(xpath = "//*[@id=\"battle_middle\"]/button[2]")
     private WebElement passer;
 
-    @FindBy(xpath = "//*[@id=\"rewards_popup\"]/button")
+    @FindBy(xpath = "//*[@id=\"rewards_popup\"]/div/button")
     private WebElement ok;
 
     @FindBy(xpath = "//*[@id=\"leagues_left\"]/div/div[8]/div/div[2]/span[1]")
