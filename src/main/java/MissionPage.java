@@ -26,7 +26,7 @@ public class MissionPage extends HentaiHeroesPage{
     @FindBy(css = "#contains_all > section > div.tabs > h4.missions.selected")
     private WebElement repereMission;
 
-    @FindBy(css = "#missions_rewards > button")
+    @FindBy(xpath = "//*[@id=\"rewards_popup\"]/div/button")
     private WebElement validerRecompense;
 
     @FindBy(xpath = "//*[@id=\"missions\"]/div/div[2]/button")
