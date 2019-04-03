@@ -47,6 +47,7 @@ public class LastZonePage extends HentaiHeroesPage {
         webDriverWait.until(ExpectedConditions.visibilityOf(affronterDonatien));
         affronterDonatien.click();
         return new CombatPage(driver);
+
     }
 
 }

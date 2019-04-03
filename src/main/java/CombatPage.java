@@ -69,5 +69,6 @@ public class CombatPage extends HentaiHeroesPage{
 
         oki.click();
         return new LastZonePage(driver);
+
     }
 }

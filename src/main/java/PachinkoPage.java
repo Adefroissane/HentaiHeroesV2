@@ -33,4 +33,5 @@ public class PachinkoPage extends HentaiHeroesPage{
         genial.click();
         getHeader().openHomePage(driver);
     }
+
 }

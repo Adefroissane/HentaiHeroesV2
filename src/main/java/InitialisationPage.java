@@ -67,5 +67,6 @@ public class InitialisationPage extends HentaiHeroesPage{
         {
             return new HomePage(driver);
         }
+
     }
 }

@@ -177,5 +177,6 @@ public class DuelPage extends HentaiHeroesPage {
 
         pVAdversaire3.click();
         return new CombatPage(driver);
+
     }
 }

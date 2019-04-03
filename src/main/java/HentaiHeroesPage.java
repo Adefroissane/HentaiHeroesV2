@@ -17,4 +17,5 @@ public class HentaiHeroesPage {
     public Header getHeader(){
         return header;
     }
+
 }

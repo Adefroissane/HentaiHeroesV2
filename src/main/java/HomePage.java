@@ -134,4 +134,5 @@ public class HomePage  extends HentaiHeroesPage{
         tourDeLaGloire.click();
         return new TourDeLaGloirePage(driver);
     }
+
 }

@@ -103,5 +103,6 @@ public class TourDeLaGloirePage extends HentaiHeroesPage {
             ok.click();
             lancerDefi(driver);
         }
+
     }
 }

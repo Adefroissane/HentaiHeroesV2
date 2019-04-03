@@ -60,5 +60,6 @@ public class AventurePage extends HentaiHeroesPage {
         webDriverWait2.until(ExpectedConditions.visibilityOf(donatien));
         donatien.click();
         return new LastZonePage(driver);
+
     }
 }
